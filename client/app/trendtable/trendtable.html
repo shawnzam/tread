@@ -1,0 +1,19 @@
+
+<span class="lead">Showing {{trendLength}}</span>
+<table class="trending table">
+  <tr>
+    <th>Trend</th>
+    <th>Votes</th>
+    <th>Vote Up</th>
+    <th>Vote Down</th>
+    <th>Date added</th>
+  </tr>
+  <tr ng-repeat="trend in trends | toArray | orderBy: mySortBy">
+    <td class="trend" ><h2><a href="{{trend.url}}" target="_blank">{{trend.name}}</a></h2></td>
+    <td class="votes"><h2>{{trend.votes || 0 | number}}</h2></td>
+    <td ng-class="beenVotedOn(trend.query)"><button ng-click="vote(true, trend.query)" class="btn btn-up"><span class="glyphicon glyphicon-arrow-up"></span></button></td>
+    <td ng-class="beenVotedOn(trend.query)"><button ng-click="vote(false, trend.query)" class="btn btn-down"><span class="glyphicon glyphicon-arrow-down"></span></button></td>
+    <td class="created"><h3>{{trend.created_at | timeAgo}}</h3></td>
+  </tr>
+
+</table>
