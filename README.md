@@ -34,7 +34,7 @@ You'll need to create a TWIT config file here `/server/config/twit.js`
 
 of this format
 
-```
+```javascript
 'use strict';
 
 // TWIT specific configuration
